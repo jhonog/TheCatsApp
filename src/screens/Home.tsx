@@ -19,7 +19,10 @@ export const Home = () => {
         {isLoadingCats ? (
           <ActivityIndicator />
         ) : (
-          <View>
+          <View style={styles.Container}>
+            <View  >
+              <Text style={{fontWeight:'bold', fontSize:16, textAlign:'center'}} >CatsBreeds</Text>
+            </View>
             <FlatList
               data={cats}
               renderItem={({item}) => (
@@ -31,10 +34,12 @@ export const Home = () => {
                       source={{uri: item?.imageUrl}}
                     />
                   )}
-                  <Text style={styles.origin}>Origin: {item.origin}</Text>
-                  <Text style={styles.intelligence}>
-                    Intelligence: {item.intelligence}
-                  </Text>
+                  <View style={{flex:1, width:'100%', justifyContent:'space-between', flexDirection:'row'}} >
+                    <Text style={styles.origin}>Origin: {item.origin}</Text>
+                    <Text style={styles.intelligence}>
+                      Intelligence: {item.intelligence}
+                    </Text>
+                  </View>
                 </View>
               )}
               keyExtractor={item => item.bredName}
@@ -69,10 +74,15 @@ const styles = StyleSheet.create({
     color: 'blue',
   },
   image: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
+    width: 200,
+    height: 200,
+    borderRadius: 5,
     marginTop: 8,
+    marginVertical: 12,
     alignSelf: 'center',
+  },
+  Container: {
+    padding: 20,
+    flexGrow: 1,
   },
 });

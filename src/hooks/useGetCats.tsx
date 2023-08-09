@@ -41,7 +41,6 @@ export const useCats = () => {
             console.error('Error fetching cat breed image:', error);
           }
         }
-        console.log(newCat);
         
 
         return newCat;
